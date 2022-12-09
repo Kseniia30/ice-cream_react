@@ -1,0 +1,44 @@
+.shakesList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: -32px;
+    margin-right: -32px;
+}
+
+.shakesItem {
+    width: calc(100% / 2 - 72px);
+    margin-right: 32px;
+    margin-bottom: 32px;
+    border-radius: 24px;
+    padding: 20px;
+    background: #C2E297;
+}
+
+.shakesTitle {
+    font-size: 20px;
+    line-height: 1.31;
+    font-weight: 700;
+    color: #D41443;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.shakesDescr {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #FFF;
+    text-align: justify;
+    text-indent: 10px;
+    margin-bottom: 10px;
+}
+
+.shakesImg {
+    width: 400px;
+    border-radius: 24px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

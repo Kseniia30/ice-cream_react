@@ -1,0 +1,161 @@
+/* HEADER */
+
+.header {
+    background: #FFB8CA;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.headerList {
+    display: flex;
+    z-index: 1;
+}
+
+.headerListItem:not(:last-child) {
+    margin-right: 35px;
+}
+
+.headerListLink {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerListLink:focus, .headerListLink:hover {
+    color: #D41443;
+}
+
+/* HERO */
+
+.heroSection {
+    background: #FFB8CA;
+    padding: 60px 16px;
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+}
+.heroTitleDiv {
+    margin-bottom: 40px;
+}
+.heroTitle {
+    font-family: 'Titan One';
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 44px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+}
+.heroTitleSpan {
+    color: #D41443;
+}
+.heroNavList {
+    display: flex;
+}
+.heroNavItem:not(:last-child) {
+    margin-right: 35px;
+}
+.heroNavLink {
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 7px 37px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+    color: #D41443;
+    align-items: center;
+    display: flex;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.heroNavLink:focus, .heroNavLink:hover {
+    background-color: #D41342;
+    color: white;
+}
+.heroInnovationDiv {
+    width: 413px;
+    display: flex;
+}
+.heroInnovationText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    text-align: justify;
+}
+.heroInnovationBtn {
+    background-color: #fff;
+    color: #FFA5BA;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    display: grid;
+}
+.shopsDiv {
+    text-align: right;
+}
+.shopsItems {
+    position: relative;
+}
+.shopsItems::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    right: -4px;
+    top: -4px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+}
+.shopsItems:not(:last-child) {
+    margin-bottom: 15px;
+}
+.shopNumbers {
+    font-family: 'Titan One';
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 53px;
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #D41443;
+}
+.shops {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.circleDiv {
+    position: absolute;
+    width: 534px;
+    height: 534px;
+    right: 220px;
+    bottom: 77px;
+    background: #FFA5BA;
+    border-radius: 50%;
+}
+.heroIceImg {
+    position: absolute;
+    right: 408px;
+    bottom: 0;
+}
+.heroIceImgSecond {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

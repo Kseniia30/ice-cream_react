@@ -1,0 +1,89 @@
+.locationSection {
+    padding: 60px 16px 30px;
+    background-image: linear-gradient(to bottom, white 163px, #FFF5F6 163px);
+}
+
+.locationList {
+    display: flex;
+}
+
+.locationItem {
+    width: calc(100% / 3 - 32px);
+    padding: 40px;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+    background-color: #fff;
+}
+.locationItem:not(:last-child) {
+    margin-right: 32px;
+}
+
+.locationCafe {
+    width: 75px;
+    background: #F0D1A5;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+}
+
+.locationFoodTruck {
+    width: 138px;
+    background: #C2E297;;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+}
+
+.locationAddress {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    color: #000000;
+    margin-bottom: 32px;
+}
+
+.locationWorkList {
+    border-top: 1px solid #E1E1E1;
+    padding-top: 32px;
+    border-bottom: 1px solid #E1E1E1;
+    padding-bottom: 32px;
+}
+.locationWorkItem:not(:last-child) {
+    margin-bottom: 12px;
+}
+.days {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    color: #000000;
+}
+
+.hours {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: #FFA5BA;
+}
+
+.locationContactList {
+    margin-top: 32px;
+}
+
+.locationContactLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 29px;
+    color: #907E82;
+}

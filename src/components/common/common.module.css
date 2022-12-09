@@ -1,0 +1,79 @@
+.littleTitle {
+    font-family: 'Titan One';
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #FFA5BA;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-family: 'Titan One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 58px;
+    line-height: 66px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #D41443;
+}
+
+.goBackDiv {
+    background: #FFB8CA;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.goBackBtn {
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 7px 37px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+    color: #D41443;
+    align-items: center;
+    display: flex;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.goBackBtn:focus,
+.goBackBtn:hover {
+    background-color: #D41342;
+    color: white;
+}
+.goBackLink {
+    color: inherit;
+}
+
+.takeToBusketBtn {
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 4px 17px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+    color: #D41443;
+    align-items: center;
+    display: flex;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.takeToBusketBtn:focus,
+.takeToBusketBtn:hover {
+    background-color: #D41342;
+    color: white;
+}

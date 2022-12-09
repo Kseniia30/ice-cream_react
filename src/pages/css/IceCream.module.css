@@ -1,0 +1,43 @@
+.creamList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -32px;
+    margin-top: -32px;
+}
+
+.creamListItem {
+    width: calc(100% / 2 - 72px);
+    margin-right: 32px;
+    margin-top: 32px;
+    border-radius: 24px;
+    padding: 20px;
+    background: #FFB8CA;
+}
+
+.creamTitle {
+    font-size: 20px;
+    line-height: 1.31;
+    font-weight: 700;
+    color: #D41443;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.creamDescr {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #FFF;
+    text-align: justify;
+    text-indent: 10px;
+    margin-bottom: 10px;
+}
+
+.creamImg {
+    width: 600px;
+    border-radius: 24px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
