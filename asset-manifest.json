@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ice-cream_react/static/css/main.9cce6ad6.css",
+    "main.css": "/ice-cream_react/static/css/main.0ceec083.css",
     "main.js": "/ice-cream_react/static/js/main.ea7a0bf2.js",
     "index.html": "/ice-cream_react/index.html",
-    "main.9cce6ad6.css.map": "/ice-cream_react/static/css/main.9cce6ad6.css.map",
+    "main.0ceec083.css.map": "/ice-cream_react/static/css/main.0ceec083.css.map",
     "main.ea7a0bf2.js.map": "/ice-cream_react/static/js/main.ea7a0bf2.js.map"
   },
   "entrypoints": [
-    "static/css/main.9cce6ad6.css",
+    "static/css/main.0ceec083.css",
     "static/js/main.ea7a0bf2.js"
   ]
 }
