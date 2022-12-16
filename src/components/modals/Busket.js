@@ -21,28 +21,38 @@ export const Busket = () => {
         ...hotCoffee,
     ];
 
-    const getQuantity = evt => {
-        console.log(evt.target.value);
-    };
     return (
         <>
             <ul>
                 {shoppingList.map(item => {
                     const id = item.name || item.title;
                     return (
-                        <li key={nanoid()}>
-                            <b>{item.name || item.title}</b>
-                            <button type="button" id={id}>
+                        <li key={nanoid()} className={css.busketListItem}>
+                            <b className={css.product}>
+                                {item.name || item.title}
+                            </b>
+                            <button
+                                id={id}
+                                type="button"
+                                className={css.quanitityBTN}
+                            >
+                                +1
+                            </button>
+                            <button
+                                id={id}
+                                type="button"
+                                className={css.quanitityBTN}
+                            >
+                                -1
+                            </button>
+                            <p className={css.quanitity}>Amount: </p>
+                            <button
+                                type="button"
+                                id={id}
+                                className={css.deleteFromBusketBTN}
+                            >
                                 Delete
                             </button>
-                            <label>
-                                how many
-                                <input
-                                    type="number"
-                                    value="1"
-                                    onChange={getQuantity}
-                                />
-                            </label>
                         </li>
                     );
                 })}
