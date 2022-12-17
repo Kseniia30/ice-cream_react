@@ -35,6 +35,7 @@
 .busketListItem {
     display: flex;
     align-items: baseline;
+    width: 500px;
 }
 
 .busketListItem:not(:last-child) {
