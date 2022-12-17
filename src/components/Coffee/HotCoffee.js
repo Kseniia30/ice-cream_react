@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './Coffee.module.css';
 import scss from '../common/common.module.css';
-import { buyHotCoffeeFunc } from 'buy/buyFunc';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { addProduct } from 'redux/store';
 
 const HotCoffee = () => {
     const [coffeeList, setCoffeeList] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         try {
@@ -21,6 +24,15 @@ const HotCoffee = () => {
     if (!coffeeList) {
         return;
     }
+    const getHotById = id => {
+        return axios.get(`https://api.sampleapis.com/coffee/hot/${id}`);
+    };
+    const buyHotCoffee = evt => {
+        const id = evt.currentTarget.id;
+        getHotById(id).then(res => {
+            dispatch(addProduct(res.data));
+        });
+    };
     return (
         <ul className={css.coffeeList}>
             {coffeeList.map(item => {
@@ -43,7 +55,7 @@ const HotCoffee = () => {
                             id={id}
                             type="button"
                             className={scss.takeToBusketBtn}
-                            onClick={buyHotCoffeeFunc}
+                            onClick={buyHotCoffee}
                         >
                             take to busket
                         </button>

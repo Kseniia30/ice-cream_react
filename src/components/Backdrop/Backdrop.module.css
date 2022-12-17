@@ -23,7 +23,7 @@
     padding: 40px;
     background-color: #E17992;
     overflow-y: scroll;
-    background-image: url('http://pngimg.com/uploads/milk/milk_PNG12724.png');
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('http://pngimg.com/uploads/milk/milk_PNG12724.png');
     background-repeat: no-repeat;
     background-size: contain;
 }

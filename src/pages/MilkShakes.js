@@ -1,11 +1,18 @@
-import { buyMilkShakes } from 'buy/buyFunc';
 import { milkShakes } from 'data/milkShakesData';
 import { nanoid } from 'nanoid';
 import { Link } from 'react-router-dom';
 import scss from '../components/common/common.module.css';
 import css from './css/MilkShakes.module.css';
+import { useDispatch } from 'react-redux';
+import { addProduct } from 'redux/store';
 
 const MilkShakes = () => {
+    const dispatch = useDispatch();
+    const butMilkShake = evt => {
+        const id = evt.target.id;
+        const product = milkShakes.filter(item => item.id === id);
+        dispatch(addProduct(...product));
+    };
     return (
         <>
             <div className={scss.goBackDiv}>
@@ -32,7 +39,7 @@ const MilkShakes = () => {
                                 type="button"
                                 className={scss.takeToBusketBtn}
                                 id={id}
-                                onClick={buyMilkShakes}
+                                onClick={butMilkShake}
                             >
                                 take to busket
                             </button>

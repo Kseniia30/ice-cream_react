@@ -1,11 +1,18 @@
-import { buyIceCream } from 'buy/buyFunc';
 import { iceCreamData } from 'data/iceCreamData';
 import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addProduct } from 'redux/store';
 import scss from '../components/common/common.module.css';
 import css from './css/IceCream.module.css';
 
 const IceCream = () => {
+    const dispatch = useDispatch();
+    const buyIceCream = evt => {
+        const id = evt.target.id;
+        const product = iceCreamData.filter(item => item.id === id);
+        dispatch(addProduct(...product));
+    };
     return (
         <>
             <div className={scss.goBackDiv}>

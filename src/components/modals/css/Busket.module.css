@@ -1,6 +1,7 @@
 .busketBuyBtn {
-    position: fixed;
-    bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
     left: calc((100% - 80px) / 2);
     background-color: #FFFFFF;
     border-radius: 22px;

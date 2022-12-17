@@ -1,36 +1,32 @@
 import css from './css/Busket.module.css';
 import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { deleteProduct } from 'redux/store';
+import scss from '../common/common.module.css';
 
 export const Busket = () => {
-    const milkshakes = localStorage.getItem('milkshake')
-        ? JSON.parse(localStorage.getItem('milkshake'))
-        : [];
-    const iceCream = localStorage.getItem('iceCream')
-        ? JSON.parse(localStorage.getItem('iceCream'))
-        : [];
-    const iceCoffee = localStorage.getItem('icedCoffee')
-        ? JSON.parse(localStorage.getItem('icedCoffee'))
-        : [];
-    const hotCoffee = localStorage.getItem('hotCoffee')
-        ? JSON.parse(localStorage.getItem('hotCoffee'))
-        : [];
-    const shoppingList = [
-        ...iceCream,
-        ...milkshakes,
-        ...iceCoffee,
-        ...hotCoffee,
-    ];
+    const productList = useSelector(state => state.productList);
+    const dispatch = useDispatch();
 
+    const deleteProductfromList = evt => {
+        dispatch(deleteProduct(evt.target.id));
+    };
     return (
         <>
+            <h1 className={scss.title} style={{ marginBottom: '10px' }}>
+                Your choice
+            </h1>
+            {productList.length === 0 && (
+                <p className={scss.littleTitle}>You did't choose anything</p>
+            )}
             <ul>
-                {shoppingList.map(item => {
+                {productList.map(item => {
+                    const productName = item.name || item.title;
                     const id = item.name || item.title;
                     return (
                         <li key={nanoid()} className={css.busketListItem}>
-                            <b className={css.product}>
-                                {item.name || item.title}
-                            </b>
+                            <b className={css.product}>{productName}</b>
                             <button
                                 id={id}
                                 type="button"
@@ -50,6 +46,7 @@ export const Busket = () => {
                                 type="button"
                                 id={id}
                                 className={css.deleteFromBusketBTN}
+                                onClick={deleteProductfromList}
                             >
                                 Delete
                             </button>
@@ -57,9 +54,11 @@ export const Busket = () => {
                     );
                 })}
             </ul>
-            <button type="button" className={css.busketBuyBtn}>
-                Buy
-            </button>
+            {productList.length !== 0 && (
+                <button type="button" className={css.busketBuyBtn}>
+                    Buy
+                </button>
+            )}
         </>
     );
 };
