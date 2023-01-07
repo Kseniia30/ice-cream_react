@@ -9,7 +9,6 @@ import {
     CoffeeItem,
     CoffeeList,
     CoffeeName,
-    CoffeeSpan,
     CoffeeSub,
 } from './TypeCoffee.styled';
 import { BusketButton } from 'components/common/Common.styled';
@@ -40,18 +39,18 @@ const HotCoffee = () => {
             dispatch(addProduct(res.data));
         });
     };
+    if (!coffeeList) {
+        return;
+    }
     return (
         <CoffeeList>
             {coffeeList.map(item => {
-                const { id, title, description, image, ingredients } = item;
+                console.log(item);
+                const { id, title, description, image } = item;
                 return (
                     <CoffeeItem key={nanoid()}>
                         <CoffeeName>{title}</CoffeeName>
                         <CoffeeSub>{description}</CoffeeSub>
-                        <CoffeeSub>
-                            <CoffeeSpan>Ingredients: </CoffeeSpan>
-                            {ingredients.join(', ')}
-                        </CoffeeSub>
                         <CoffeeImg src={image} alt={title} />
                         <br />
                         <BusketButton
