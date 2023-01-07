@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/ice-cream_react/static/css/main.f4824666.css",
-    "main.js": "/ice-cream_react/static/js/main.6fe10823.js",
+    "main.css": "/ice-cream_react/static/css/main.3c311efc.css",
+    "main.js": "/ice-cream_react/static/js/main.3a051cb1.js",
+    "static/media/slider-pic7 1.png": "/ice-cream_react/static/media/slider-pic7 1.4f443719dd2b2a12b351.png",
+    "static/media/home-pic1.png": "/ice-cream_react/static/media/home-pic1.f05df0f02e171060a12b.png",
+    "static/media/home-pic3.png": "/ice-cream_react/static/media/home-pic3.c82aca6b09863484b4ec.png",
+    "static/media/home-pic2.png": "/ice-cream_react/static/media/home-pic2.b3a9707ad340381496c1.png",
+    "static/media/cow.png": "/ice-cream_react/static/media/cow.78b5cab4ea802e1cf688.png",
     "index.html": "/ice-cream_react/index.html",
-    "main.f4824666.css.map": "/ice-cream_react/static/css/main.f4824666.css.map",
-    "main.6fe10823.js.map": "/ice-cream_react/static/js/main.6fe10823.js.map"
+    "main.3c311efc.css.map": "/ice-cream_react/static/css/main.3c311efc.css.map",
+    "main.3a051cb1.js.map": "/ice-cream_react/static/js/main.3a051cb1.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4824666.css",
-    "static/js/main.6fe10823.js"
+    "static/css/main.3c311efc.css",
+    "static/js/main.3a051cb1.js"
   ]
 }
