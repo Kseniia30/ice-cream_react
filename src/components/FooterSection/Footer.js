@@ -1,11 +1,12 @@
-import css from './FooterSection.module.css';
+import { Container } from 'components/common/Common.styled';
+import { FooterBox, Footertext } from './styled/Footer.styled';
 
 export const Footer = () => {
     return (
-        <footer className={css.footer}>
-            <p className={css.footerText}>
-                © 2019 - IceCream. All Rights Reserved
-            </p>
-        </footer>
+        <FooterBox>
+            <Container>
+                <Footertext>© 2019 - IceCream. All Rights Reserved</Footertext>
+            </Container>
+        </FooterBox>
     );
 };

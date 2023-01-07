@@ -4,99 +4,85 @@ import { BsFacebook } from 'react-icons/bs';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { IoIosArrowForward } from 'react-icons/io';
 import { nanoid } from 'nanoid';
-import css from './FooterSection.module.css';
 import { Link, useLocation } from 'react-router-dom';
+import { Button } from 'components/common/Common.styled';
+import {
+    FeedBackBtnItem,
+    FeedBackBtnList,
+    FeedBackContentBox,
+    FeedBackPhone,
+    FeedBackPhoneLink,
+    FeedbackSpan,
+    FeedbackTitle,
+    SocialItem,
+    SocialLink,
+    SocialList,
+} from './styled/FeedBack.styled';
 
 export const Feedback = ({ openModal }) => {
     const location = useLocation();
     return (
-        <Section id="footer">
-            <ul className={css.feedbackList}>
-                <li key={nanoid()} className={css.feedbackListItem}>
-                    <button
-                        type="button"
-                        data-id="map"
-                        onClick={openModal}
-                        className={css.feedbackListBtn}
-                    >
+        <Section id="footer" style={{ background: '#FFF5F6' }}>
+            <FeedBackBtnList>
+                <FeedBackBtnItem key={nanoid()}>
+                    <Button type="button" data-id="map" onClick={openModal}>
                         Our Location <IoIosArrowForward />
-                    </button>
-                </li>
+                    </Button>
+                </FeedBackBtnItem>
                 {location.pathname !== '/feedbacks' && (
-                    <li key={nanoid()} className={css.feedbackListItem}>
-                        <button type="button" className={css.feedbackListBtn}>
+                    <FeedBackBtnItem key={nanoid()}>
+                        <Button type="button">
                             <Link to="/feedbacks" style={{ color: 'inherit' }}>
                                 Feedbacks <IoIosArrowForward />
                             </Link>
-                        </button>
-                    </li>
+                        </Button>
+                    </FeedBackBtnItem>
                 )}
-            </ul>
-            <div className={css.feedbackInfoDiv}>
-                <h2 className={css.feedbackTitle}>
+            </FeedBackBtnList>
+            <FeedBackContentBox>
+                <FeedbackTitle>
                     homemade ice cream made
                     <br />
-                    <span className={css.feedbackTitleSpan}>with passion</span>
-                </h2>
+                    <FeedbackSpan>with passion</FeedbackSpan>
+                </FeedbackTitle>
                 <div>
-                    <ul className={css.contactsSocialList}>
-                        <li
-                            key={nanoid()}
-                            className={css.contactsSocialListItem}
-                        >
-                            <a
+                    <SocialList>
+                        <SocialItem key={nanoid()}>
+                            <SocialLink
                                 href="https://web.telegram.org/k/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className={css.contactsSocialLink}
                             >
-                                <FaTelegram
-                                    className={css.contactsSocialIcon}
-                                />
-                            </a>
-                        </li>
-                        <li
-                            key={nanoid()}
-                            className={css.contactsSocialListItem}
-                        >
-                            <a
+                                <FaTelegram />
+                            </SocialLink>
+                        </SocialItem>
+                        <SocialItem key={nanoid()}>
+                            <SocialLink
                                 href="https://www.facebook.com/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className={css.contactsSocialLink}
                             >
-                                <BsFacebook
-                                    className={css.contactsSocialIcon}
-                                />
-                            </a>
-                        </li>
-                        <li
-                            key={nanoid()}
-                            className={css.contactsSocialListItem}
-                        >
-                            <a
+                                <BsFacebook />
+                            </SocialLink>
+                        </SocialItem>
+                        <SocialItem key={nanoid()}>
+                            <SocialLink
                                 href="https://www.instagram.com/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className={css.contactsSocialLink}
                             >
-                                <AiOutlineInstagram
-                                    className={css.contactsSocialIcon}
-                                />
-                            </a>
-                        </li>
-                    </ul>
-                    <p className={css.contactPhone}>
+                                <AiOutlineInstagram />
+                            </SocialLink>
+                        </SocialItem>
+                    </SocialList>
+                    <FeedBackPhone>
                         Feel free to contact
-                        <a
-                            href="tel:+610383766284"
-                            className={css.contactPhoneLink}
-                        >
+                        <FeedBackPhoneLink href="tel:+610383766284">
                             +61 (0) 383 766 284
-                        </a>
-                    </p>
+                        </FeedBackPhoneLink>
+                    </FeedBackPhone>
                 </div>
-            </div>
+            </FeedBackContentBox>
         </Section>
     );
 };

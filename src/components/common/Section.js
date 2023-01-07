@@ -1,7 +1,9 @@
-export const Section = ({ id, className, children }) => {
+import { Container } from './Common.styled';
+
+export const Section = ({ id, children, style }) => {
     return (
-        <section id={id} className={className}>
-            {children}
+        <section id={id} style={style}>
+            <Container>{children}</Container>
         </section>
     );
 };

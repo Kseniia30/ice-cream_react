@@ -23,6 +23,21 @@ const busketSlice = createSlice({
     },
 });
 
+const choiceSlice = createSlice({
+    name: 'choice',
+    initialState: [],
+    reducers: {
+        getList: (state, action) => {
+            return (state = action.payload);
+        },
+        setAmount: (state, action) => {
+            state.map(item => {
+                return (item.amount = action.payload);
+            });
+        },
+    },
+});
+
 const persistConfig = {
     key: 'list',
     storage,
@@ -31,11 +46,19 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     productList: busketSlice.reducer,
+    choice: choiceSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const { addProduct, deleteProduct } = busketSlice.actions;
+export const {
+    addProduct,
+    deleteProduct,
+    incrementQuantity,
+    decrementQuantity,
+} = busketSlice.actions;
+
+export const { getList, setAmount } = choiceSlice.actions;
 
 export const store = configureStore({
     reducer: persistedReducer,

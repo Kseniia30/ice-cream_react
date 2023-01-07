@@ -1,12 +1,12 @@
 import { Feedback } from './FeedBack';
 import { Footer } from './Footer';
-import css from './FooterSection.module.css';
+import { FooterSectionBox } from './styled/FooterSection.styled';
 
 export const FooterSection = ({ openModal }) => {
     return (
-        <div className={css.footerSection}>
+        <FooterSectionBox>
             <Feedback openModal={openModal} />
             <Footer />
-        </div>
+        </FooterSectionBox>
     );
 };

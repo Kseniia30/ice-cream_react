@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { getIceCoffee } from 'fetch/getIceCoffee';
-import css from './Coffee.module.css';
-import scss from '../common/common.module.css';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { addProduct } from 'redux/store';
+import {
+    CoffeeImg,
+    CoffeeItem,
+    CoffeeList,
+    CoffeeName,
+    CoffeeSpan,
+    CoffeeSub,
+} from './TypeCoffee.styled';
+import { BusketButton } from 'components/common/Common.styled';
 
 const IceCoffee = () => {
     const [coffeeList, setCoffeeList] = useState(null);
@@ -35,34 +42,29 @@ const IceCoffee = () => {
         });
     };
     return (
-        <ul className={css.coffeeList}>
+        <CoffeeList>
             {coffeeList.map(item => {
                 const { id, title, description, image, ingredients } = item;
                 return (
-                    <li key={nanoid()} className={css.coffeeItem}>
-                        <h3 className={css.coffeeTitle}>{title}</h3>
-                        <p className={css.coffeeDescr}>{description}</p>
-                        <p className={css.coffeeDescr}>
-                            <b>Ingredients: </b>
+                    <CoffeeItem key={nanoid()}>
+                        <CoffeeName>{title}</CoffeeName>
+                        <CoffeeSub>{description}</CoffeeSub>
+                        <CoffeeSub>
+                            <CoffeeSpan>Ingredients: </CoffeeSpan>
                             {ingredients.join(', ')}
-                        </p>
-                        <img
-                            src={image}
-                            alt={title}
-                            className={css.coffeeImg}
-                        />
-                        <button
+                        </CoffeeSub>
+                        <CoffeeImg src={image} alt={title} />
+                        <BusketButton
                             type="button"
-                            className={scss.takeToBusketBtn}
                             id={id}
                             onClick={buyIcedCoffee}
                         >
                             take to busket
-                        </button>
-                    </li>
+                        </BusketButton>
+                    </CoffeeItem>
                 );
             })}
-        </ul>
+        </CoffeeList>
     );
 };
 

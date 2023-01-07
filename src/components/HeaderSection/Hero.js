@@ -1,86 +1,97 @@
 import { Section } from 'components/common/Section';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import css from './HeaderSection.module.css';
+import {
+    HeroAngularImg,
+    HeroBox,
+    HeroCircle,
+    HeroLink,
+    HeroLinkItem,
+    HeroLinkList,
+    HeroMainImg,
+    HeroTitle,
+    HeroTitleBox,
+    HeroTitleSpan,
+    ShopsItem,
+    ShopsList,
+    ShopsNumbers,
+    ShopsType,
+    TechnologiesBox,
+    TechnologiesBtn,
+    TechnologiesImg,
+    TechnologiesText,
+} from './styled/Hero.styled';
+import slider from '../../images/slider-pic7 1.png';
 
 export const Hero = ({ openModal }) => {
     return (
-        <Section id="hero" className={css.heroSection}>
-            <div>
-                <div className={css.heroTitleDiv}>
-                    <h1 className={css.heroTitle}>
-                        ice cream <br />
-                        made with <br />
-                        <span className={css.heroTitleSpan}>passion</span>
-                    </h1>
-                    <ul className={css.heroNavList}>
-                        <li className={css.heroNavItem}>
-                            <a href="#products" className={css.heroNavLink}>
-                                Products
-                            </a>
-                        </li>
-                        <li className={css.heroNavItem}>
-                            <a href="#tradition" className={css.heroNavLink}>
-                                How it’s made?
-                            </a>
-                        </li>
-                    </ul>
+        <Section id="hero">
+            <HeroBox>
+                <div>
+                    <HeroTitleBox>
+                        <HeroTitle>
+                            ice cream <br />
+                            made with <br />
+                            <HeroTitleSpan>passion</HeroTitleSpan>
+                        </HeroTitle>
+                        <HeroLinkList>
+                            <HeroLinkItem>
+                                <HeroLink href="#products">Products</HeroLink>
+                            </HeroLinkItem>
+                            <HeroLinkItem>
+                                <HeroLink href="#tradition">
+                                    How it’s made?
+                                </HeroLink>
+                            </HeroLinkItem>
+                        </HeroLinkList>
+                    </HeroTitleBox>
+                    <TechnologiesBox>
+                        <TechnologiesImg
+                            src="http://pngimg.com/uploads/milk/milk_PNG98320.png"
+                            alt="milk"
+                        />
+                        <div>
+                            <TechnologiesText>
+                                <b>All things ice – innovations in ice cream</b>
+                                <br />
+                                In response to popular demand, Food Processing
+                                Technology looks at the very latest in ice cream
+                                flavouring and manufacturing technology. Frances
+                                Cook gets a taste of the flavours and trends
+                                currently whetting appetites for ice cream
+                                lovers and manufacturers alike.
+                            </TechnologiesText>
+                            <TechnologiesBtn
+                                type="button"
+                                onClick={openModal}
+                                data-id="technologies"
+                            >
+                                <AiOutlineArrowRight />
+                            </TechnologiesBtn>
+                        </div>
+                    </TechnologiesBox>
                 </div>
-                <div className={css.heroInnovationDiv}>
-                    <img
-                        src="http://pngimg.com/uploads/milk/milk_PNG98320.png"
-                        alt="milk"
-                        width="213"
-                        height="274"
+                <ShopsList>
+                    <ShopsItem>
+                        <ShopsNumbers>16</ShopsNumbers>
+                        <ShopsType>cafes</ShopsType>
+                    </ShopsItem>
+                    <ShopsItem>
+                        <ShopsNumbers>23</ShopsNumbers>
+                        <ShopsType>food trucks</ShopsType>
+                    </ShopsItem>
+                    <HeroAngularImg
+                        src="http://pngimg.com/uploads/ice_cream/ice_cream_PNG20992.png"
+                        alt="couple with ice cream"
                     />
-                    <div>
-                        <p className={css.heroInnovationText}>
-                            <b>All things ice – innovations in ice cream</b>
-                            <br />
-                            In response to popular demand, Food Processing
-                            Technology looks at the very latest in ice cream
-                            flavouring and manufacturing technology. Frances
-                            Cook gets a taste of the flavours and trends
-                            currently whetting appetites for ice cream lovers
-                            and manufacturers alike.
-                        </p>
-                        <button
-                            type="button"
-                            onClick={openModal}
-                            data-id="technologies"
-                            className={css.heroInnovationBtn}
-                        >
-                            <AiOutlineArrowRight />
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div className={css.shopsDiv}>
-                <ul>
-                    <li className={css.shopsItems}>
-                        <h2 className={css.shopNumbers}>16</h2>
-                        <p className={css.shops}>cafes</p>
-                    </li>
-                    <li className={css.shopsItems}>
-                        <h2 className={css.shopNumbers}>23</h2>
-                        <p className={css.shops}>food trucks</p>
-                    </li>
-                </ul>
-                <img
-                    src="http://pngimg.com/uploads/ice_cream/ice_cream_PNG20992.png"
-                    alt="couple with ice cream"
-                    width="304"
-                    height="287"
-                    className={css.heroIceImgSecond}
+                </ShopsList>
+                <HeroCircle></HeroCircle>
+                <HeroMainImg
+                    src={slider}
+                    alt="ice cream"
+                    width="236"
+                    height="519"
                 />
-            </div>
-            <div className={css.circleDiv}></div>
-            <img
-                src="http://pngimg.com/uploads/ice_cream/ice_cream_PNG98155.png"
-                alt="ice cream"
-                width="236"
-                height="519"
-                className={css.heroIceImg}
-            />
+            </HeroBox>
         </Section>
     );
 };

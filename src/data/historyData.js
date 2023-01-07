@@ -70,4 +70,9 @@ export const historyImages = [
         src: 'https://evergreenkitchen.ca/wp-content/uploads/2021/10/Whiskey-Hazelnut-No-Churn-Ice-Cream-0-4X5-400x500.jpg',
         height: '300',
     },
+    {
+        id: nanoid(),
+        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0j7bMJ_qAP97u7wuqJeXQkeKS5ifGCxLX6A&usqp=CAU',
+        height: '360',
+    },
 ];

@@ -15,23 +15,44 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 700px;
-    height: 500px;
+    width: 250px;
+    height: 300px;
     transform: translate(-50%, -50%);
     border-radius: 4px;
     align-items: center;
-    padding: 40px;
+    padding: 20px;
     background-color: #E17992;
     overflow-y: scroll;
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url('http://pngimg.com/uploads/milk/milk_PNG12724.png');
+    background-image: linear-gradient(rgba(132, 134, 161, 0.4), rgba(132, 134, 161, 0.4)), url('http://pngimg.com/uploads/milk/milk_PNG12724.png');
     background-repeat: no-repeat;
     background-size: contain;
 }
 .closeBtn {
     position: absolute;
-    right: 40px;
-    top: 40px;
+    right: 5px;
+    top: 5px;
     border: none;
     background-color: transparent;
     color: #D41342;;
+}
+
+@media screen and (min-width: 768px) {
+    .closeBtn {
+        right: 40px;
+        top: 40px;
+        ;
+    }
+    .modal {
+        width: 500px;
+        height: 500px;
+        padding: 30px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .modal {
+        width: 700px;
+        height: 500px;
+        padding: 40px;
+    }
 }

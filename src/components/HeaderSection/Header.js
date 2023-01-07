@@ -1,35 +1,49 @@
-import css from './HeaderSection.module.css';
+import { Container } from 'components/common/Common.styled';
+import {
+    HeaderList,
+    HeaderListItem,
+    HeaderListLink,
+    HeaderMobileMenuBtn,
+} from './styled/Header.styled';
 
-export const Header = () => {
+import { AiOutlineMenu } from 'react-icons/ai';
+
+export const Header = ({ openModal }) => {
     return (
-        <header className={css.header}>
-            <ul className={css.headerList}>
-                <li className={css.headerListItem}>
-                    <a href="#hero" className={css.headerListLink}>
-                        Home
-                    </a>
-                </li>
-                <li className={css.headerListItem}>
-                    <a href="#products" className={css.headerListLink}>
-                        Products
-                    </a>
-                </li>
-                <li className={css.headerListItem}>
-                    <a href="#tradition" className={css.headerListLink}>
-                        Tradition and Love
-                    </a>
-                </li>
-                <li className={css.headerListItem}>
-                    <a href="#location" className={css.headerListLink}>
-                        Location
-                    </a>
-                </li>
-                <li className={css.headerListItem}>
-                    <a href="#footer" className={css.headerListLink}>
-                        Feedback
-                    </a>
-                </li>
-            </ul>
+        <header>
+            <Container>
+                <HeaderMobileMenuBtn
+                    type="button"
+                    data-id="mobileMenu"
+                    onClick={openModal}
+                >
+                    <AiOutlineMenu />
+                    <AiOutlineMenu />
+                </HeaderMobileMenuBtn>
+                <HeaderList>
+                    <HeaderListItem>
+                        <HeaderListLink href="#hero">Home</HeaderListLink>
+                    </HeaderListItem>
+                    <HeaderListItem>
+                        <HeaderListLink href="#products">
+                            Products
+                        </HeaderListLink>
+                    </HeaderListItem>
+                    <HeaderListItem>
+                        <HeaderListLink href="#tradition">
+                            Tradition and Love
+                        </HeaderListLink>
+                    </HeaderListItem>
+                    <HeaderListItem>
+                        <HeaderListLink href="#location">
+                            Location
+                        </HeaderListLink>
+                    </HeaderListItem>
+                    <HeaderListItem>
+                        <HeaderListLink href="#footer">Feedback</HeaderListLink>
+                    </HeaderListItem>
+                </HeaderList>
+            </Container>
         </header>
     );
 };

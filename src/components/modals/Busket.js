@@ -1,63 +1,112 @@
-import css from './css/Busket.module.css';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deleteProduct } from 'redux/store';
-import scss from '../common/common.module.css';
+import { deleteProduct, getList, setAmount } from 'redux/store';
+import {
+    LittleTitle,
+    PagesTitle,
+    BusketButton,
+} from 'components/common/Common.styled';
+import {
+    AmountBox,
+    BusketItem,
+    BusketList,
+    BusketProductAmount,
+    BusketProductName,
+    QuantityBtn,
+    BuyButton,
+} from './styled/Busket.styled';
+import { useEffect } from 'react';
 
 export const Busket = () => {
     const productList = useSelector(state => state.productList);
+    const choiceList = useSelector(state => state.choice);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const product = productList.map(item => {
+            return {
+                name: item.name || item.title,
+                id: item.name || item.title,
+                amount: 1,
+            };
+        });
+        dispatch(getList(product));
+    }, [dispatch, productList]);
 
     const deleteProductfromList = evt => {
         dispatch(deleteProduct(evt.target.id));
     };
+
+    const increment = evt => {
+        const amountSpan = document.querySelectorAll('.amount');
+        amountSpan.forEach(span => {
+            if (span.getAttribute('id') === evt.target.id) {
+                span.textContent = Number(span.textContent) + 1;
+            }
+        });
+    };
+
+    const decrement = evt => {
+        const amountSpan = document.querySelectorAll('.amount');
+        amountSpan.forEach(span => {
+            if (
+                span.getAttribute('id') === evt.target.id &&
+                Number(span.textContent) > 1
+            ) {
+                span.textContent = Number(span.textContent) - 1;
+            }
+        });
+    };
+
     return (
         <>
-            <h1 className={scss.title} style={{ marginBottom: '10px' }}>
-                Your choice
-            </h1>
+            <PagesTitle>Your choice</PagesTitle>
             {productList.length === 0 && (
-                <p className={scss.littleTitle}>You did't choose anything</p>
+                <LittleTitle>You did't choose anything</LittleTitle>
             )}
-            <ul>
+            <BusketList>
                 {productList.map(item => {
                     const productName = item.name || item.title;
                     const id = item.name || item.title;
                     return (
-                        <li key={nanoid()} className={css.busketListItem}>
-                            <b className={css.product}>{productName}</b>
-                            <button
-                                id={id}
+                        <BusketItem key={nanoid()}>
+                            <BusketProductName>{productName}</BusketProductName>
+                            <AmountBox id={id}>
+                                <QuantityBtn
+                                    id={id}
+                                    type="button"
+                                    onClick={increment}
+                                >
+                                    +1
+                                </QuantityBtn>
+                                <QuantityBtn
+                                    id={id}
+                                    type="button"
+                                    onClick={decrement}
+                                >
+                                    -1
+                                </QuantityBtn>
+                                <BusketProductAmount>
+                                    Amount:
+                                    <span className="amount" id={id}>
+                                        1
+                                    </span>
+                                </BusketProductAmount>
+                            </AmountBox>
+                            <BusketButton
                                 type="button"
-                                className={css.quanitityBTN}
-                            >
-                                +1
-                            </button>
-                            <button
                                 id={id}
-                                type="button"
-                                className={css.quanitityBTN}
-                            >
-                                -1
-                            </button>
-                            <p className={css.quanitity}>Amount: </p>
-                            <button
-                                type="button"
-                                id={id}
-                                className={css.deleteFromBusketBTN}
                                 onClick={deleteProductfromList}
                             >
                                 Delete
-                            </button>
-                        </li>
+                            </BusketButton>
+                        </BusketItem>
                     );
                 })}
-            </ul>
+            </BusketList>
             {productList.length !== 0 && (
-                <button type="button" className={css.busketBuyBtn}>
-                    Buy
-                </button>
+                <BuyButton type="button">Buy</BuyButton>
             )}
         </>
     );

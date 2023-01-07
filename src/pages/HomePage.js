@@ -1,4 +1,5 @@
 import { Modal } from 'components/Backdrop/Backdrop';
+import { HeaderMobileMenu } from 'components/HeaderSection/HeaderMobileMenu';
 import { HeaderSection } from 'components/HeaderSection/HeaderSection';
 import { Location } from 'components/Location/Location';
 import { Technologies } from 'components/modals/Tecnologies';
@@ -26,6 +27,11 @@ export const HomePage = () => {
             {showModal && modalId === 'technologies' && (
                 <Modal onClose={toggleModal}>
                     <Technologies />
+                </Modal>
+            )}
+            {showModal && modalId === 'mobileMenu' && (
+                <Modal onClose={toggleModal}>
+                    <HeaderMobileMenu closeMenu={toggleModal} />
                 </Modal>
             )}
         </>

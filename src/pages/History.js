@@ -1,62 +1,79 @@
 import { historyData, historyImages } from 'data/historyData';
-import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
-import scss from '../components/common/common.module.css';
-import css from './css/History.module.css';
+import {
+    Button,
+    Container,
+    GoBackDiv,
+    GoBackLink,
+    LittleTitle,
+    PagesTitle,
+} from 'components/common/Common.styled';
+import {
+    HistoryBox,
+    HistoryContentBox,
+    HistoryContentItem,
+    HistoryContentList,
+    HistoryContentText,
+    HistoryContentTime,
+    HistoryContentTitle,
+    HistoryImage,
+    HistoryImagesItem,
+    HistoryImagesList,
+} from './styled/History.styled';
 
 const History = () => {
     return (
         <>
-            <div className={scss.goBackDiv}>
-                <button type="button" className={scss.goBackBtn}>
-                    <Link to="/" className={scss.goBackLink}>
-                        Go back
-                    </Link>
-                </button>
-            </div>
-            <h1 className={scss.title}>History of coffee</h1>
-            <p className={scss.littleTitle}>(By Robin Weir)</p>
-            <div className={css.historyFlexDiv}>
-                <ul className={css.historyImgList}>
-                    {historyImages.map(image => {
-                        const { id, src, height } = image;
-                        return (
-                            <li key={id} className={css.histioryItem}>
-                                <img
-                                    src={src}
-                                    alt="ice cream"
-                                    width="240"
-                                    height={height}
-                                    className={css.histioryImg}
-                                />
-                            </li>
-                        );
-                    })}
-                </ul>
-                <ul className={css.historyTextList}>
-                    {historyData.map(item => {
-                        const { id, title, time, content } = item;
-                        return (
-                            <li key={id} className={css.histioryItem}>
-                                <p className={css.historyTime}>{time}</p>
-                                <h2 className={css.historyTextTitle}>
-                                    {title}
-                                </h2>
-                                {content.map(text => {
-                                    return (
-                                        <p
-                                            key={nanoid()}
-                                            className={css.historyText}
-                                        >
-                                            {text}
-                                        </p>
-                                    );
-                                })}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
+            <GoBackDiv>
+                <Container>
+                    <Button type="button">
+                        <GoBackLink to="/">Go back</GoBackLink>
+                    </Button>
+                </Container>
+            </GoBackDiv>
+            <HistoryBox>
+                <PagesTitle>History of coffee</PagesTitle>
+                <LittleTitle>(By Robin Weir)</LittleTitle>
+                <HistoryContentBox>
+                    <HistoryImagesList>
+                        {historyImages.map(image => {
+                            const { id, src, height } = image;
+                            return (
+                                <HistoryImagesItem key={id}>
+                                    <HistoryImage
+                                        src={src}
+                                        alt="ice cream"
+                                        width="240"
+                                        height={height}
+                                    />
+                                </HistoryImagesItem>
+                            );
+                        })}
+                    </HistoryImagesList>
+                    <HistoryContentList>
+                        {historyData.map(item => {
+                            const { id, title, time, content } = item;
+                            return (
+                                <HistoryContentItem key={id}>
+                                    <HistoryContentTime>
+                                        {time}
+                                    </HistoryContentTime>
+                                    <HistoryContentTitle>
+                                        {title}
+                                    </HistoryContentTitle>
+                                    {content.map(text => {
+                                        return (
+                                            <HistoryContentText key={nanoid()}>
+                                                {text}
+                                            </HistoryContentText>
+                                        );
+                                    })}
+                                </HistoryContentItem>
+                            );
+                        })}
+                    </HistoryContentList>
+                </HistoryContentBox>
+            </HistoryBox>
         </>
     );
 };
