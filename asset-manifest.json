@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ice-cream_react/static/css/main.3c311efc.css",
-    "main.js": "/ice-cream_react/static/js/main.3a051cb1.js",
+    "main.js": "/ice-cream_react/static/js/main.da2b33f2.js",
     "static/media/slider-pic7 1.png": "/ice-cream_react/static/media/slider-pic7 1.4f443719dd2b2a12b351.png",
     "static/media/home-pic1.png": "/ice-cream_react/static/media/home-pic1.f05df0f02e171060a12b.png",
     "static/media/home-pic3.png": "/ice-cream_react/static/media/home-pic3.c82aca6b09863484b4ec.png",
@@ -9,10 +9,10 @@
     "static/media/cow.png": "/ice-cream_react/static/media/cow.78b5cab4ea802e1cf688.png",
     "index.html": "/ice-cream_react/index.html",
     "main.3c311efc.css.map": "/ice-cream_react/static/css/main.3c311efc.css.map",
-    "main.3a051cb1.js.map": "/ice-cream_react/static/js/main.3a051cb1.js.map"
+    "main.da2b33f2.js.map": "/ice-cream_react/static/js/main.da2b33f2.js.map"
   },
   "entrypoints": [
     "static/css/main.3c311efc.css",
-    "static/js/main.3a051cb1.js"
+    "static/js/main.da2b33f2.js"
   ]
 }
