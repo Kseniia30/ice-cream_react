@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deleteProduct, getList, setAmount } from 'redux/store';
+import { deleteProduct, getList } from 'redux/store';
 import {
     LittleTitle,
     PagesTitle,
@@ -20,7 +20,6 @@ import { useEffect } from 'react';
 
 export const Busket = () => {
     const productList = useSelector(state => state.productList);
-    const choiceList = useSelector(state => state.choice);
     const dispatch = useDispatch();
 
     useEffect(() => {
