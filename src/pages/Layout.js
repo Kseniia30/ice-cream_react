@@ -13,10 +13,14 @@ import {
     LayoutMainBox,
     Logo,
 } from './styled/LayoutStyled';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearList } from 'redux/store';
 
 export const LayOut = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalId, setModalId] = useState('');
+    const productList = useSelector(state => state.productList);
+    const dispatch = useDispatch();
 
     const toggleModal = evt => {
         setShowModal(!showModal);
@@ -25,6 +29,35 @@ export const LayOut = () => {
         toggleModal();
         setModalId(evt.currentTarget.dataset.id);
     };
+    const closeBusket = evt => {
+        evt.preventDefault();
+        const form = evt.target.parentNode;
+        const name = form.elements.name.value;
+        const email = form.elements.email.value;
+        const phone = form.elements.phone.value;
+        const address = form.elements.city.value;
+        const payment = form.elements.type.value;
+        const comment = form.elements.feedback.value;
+        if (name === '') {
+            return alert('Name is required');
+        }
+        if (email === '') {
+            return alert('Email is required');
+        }
+        console.log({
+            name,
+            email,
+            phone,
+            address,
+            payment,
+            comment,
+            productList,
+        });
+        toggleModal();
+        alert(`${name}, your order is accepted`);
+        dispatch(clearList());
+    };
+
     return (
         <LayoutMainBox>
             <LayoutHeader>
@@ -52,7 +85,7 @@ export const LayOut = () => {
             <FooterSection openModal={openBackdrop} />
             {showModal && modalId === 'busket' && (
                 <Modal onClose={toggleModal}>
-                    <Busket />
+                    <Busket onClose={closeBusket} />
                 </Modal>
             )}
             {showModal && modalId === 'map' && (

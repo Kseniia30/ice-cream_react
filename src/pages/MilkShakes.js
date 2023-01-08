@@ -1,6 +1,6 @@
 import { milkShakes } from 'data/milkShakesData';
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from 'redux/store';
 import {
     BusketButton,
@@ -20,10 +20,21 @@ import {
 
 const MilkShakes = () => {
     const dispatch = useDispatch();
+    const productList = useSelector(state => state.productList);
     const butMilkShake = evt => {
         const id = evt.target.id;
-        const product = milkShakes.filter(item => item.id === id);
-        dispatch(addProduct(...product));
+        const product = milkShakes.find(item => item.id === id);
+        try {
+            const productItem = productList.find(
+                item => item.name === product.name
+            );
+            if (productItem.name === product.name) {
+                return alert(`${product.name} is already is the busket`);
+            }
+        } catch (err) {
+            console.log(err.message);
+        }
+        dispatch(addProduct(product));
     };
     return (
         <>

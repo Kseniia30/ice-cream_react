@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deleteProduct, getList } from 'redux/store';
+import { deleteProduct } from 'redux/store';
 import {
     LittleTitle,
     PagesTitle,
@@ -16,22 +16,13 @@ import {
     QuantityBtn,
     BuyButton,
 } from './styled/Busket.styled';
-import { useEffect } from 'react';
+import { useState } from 'react';
+import { Order } from './Order';
 
-export const Busket = () => {
+export const Busket = ({ onClose }) => {
     const productList = useSelector(state => state.productList);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        const product = productList.map(item => {
-            return {
-                name: item.name || item.title,
-                id: item.name || item.title,
-                amount: 1,
-            };
-        });
-        dispatch(getList(product));
-    }, [dispatch, productList]);
+    const [showOrder, setShowOrder] = useState(false);
 
     const deleteProductfromList = evt => {
         dispatch(deleteProduct(evt.target.id));
@@ -58,8 +49,13 @@ export const Busket = () => {
         });
     };
 
+    const getOrderDetails = evt => {
+        setShowOrder(true);
+        evt.target.style.display = 'none';
+    };
+
     return (
-        <>
+        <div id="busket">
             <PagesTitle>Your choice</PagesTitle>
             {productList.length === 0 && (
                 <LittleTitle>You did't choose anything</LittleTitle>
@@ -105,8 +101,11 @@ export const Busket = () => {
                 })}
             </BusketList>
             {productList.length !== 0 && (
-                <BuyButton type="button">Buy</BuyButton>
+                <BuyButton type="button" onClick={getOrderDetails}>
+                    Buy
+                </BuyButton>
             )}
-        </>
+            {showOrder && <Order onClose={onClose} />}
+        </div>
     );
 };

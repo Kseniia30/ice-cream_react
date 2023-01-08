@@ -1,7 +1,7 @@
 import { getHotCoffee } from 'fetch/getHotCoffee';
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { addProduct } from 'redux/store';
 import {
@@ -16,6 +16,7 @@ import { BusketButton } from 'components/common/Common.styled';
 const HotCoffee = () => {
     const [coffeeList, setCoffeeList] = useState(null);
     const dispatch = useDispatch();
+    const productList = useSelector(state => state.productList);
 
     useEffect(() => {
         try {
@@ -36,6 +37,16 @@ const HotCoffee = () => {
     const buyHotCoffee = evt => {
         const id = evt.currentTarget.id;
         getHotById(id).then(res => {
+            try {
+                const product = productList.find(
+                    item => item.title === res.data.title
+                );
+                if (product.title === res.data.title) {
+                    return alert(`${res.data.title} is already is the busket`);
+                }
+            } catch (err) {
+                console.log(err.message);
+            }
             dispatch(addProduct(res.data));
         });
     };
@@ -45,7 +56,6 @@ const HotCoffee = () => {
     return (
         <CoffeeList>
             {coffeeList.map(item => {
-                console.log(item);
                 const { id, title, description, image } = item;
                 return (
                     <CoffeeItem key={nanoid()}>
